@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- @tHairapy schema -->
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"HairSalon",
+ "name":"tHAIRapy Salon & Spa",
+ "image":"./media/tHAIRapy_logo.jpg",
+ "url":"https://example.com/",
+ "telephone":"+1-000-000-0000",
+ "address":{
+   "@type":"PostalAddress",
+   "streetAddress":"",
+   "addressLocality":"High Ridge",
+   "addressRegion":"MO",
+   "postalCode":"",
+   "addressCountry":"US"
+ },
+ "priceRange":"$$",
+ "sameAs":[]
+}
+</script>
+
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>tHAIRapy Salon & Spa | Hair • Beauty • Style</title>
+  <meta name="description" content="A Collective of Expert Stylists Crafting Signature Looks in High Ridge, MO" />
+  <meta name="theme-color" content="#0e1013"/>
+
+  <!-- Fonts: clean & readable; sizes tuned for 25–60 demo -->
+  <!-- TODO: Swap to client's preferred webfonts if needed -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <!--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">-->
+  <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+  <style>
+    :root{
+      /* ===== LIGHT THEME  ===== */
+      --bg: #F9F6F3;           /* light cream background */
+    --panel: #E8CBB1;        /* soft champagne panels or cards */
+    --text: #0E0E0E;         /* luxury black for text */
+    --muted: #8B6C54;        /* deep taupe for secondary text */
+    --line: #CBA76B;         /* soft metallic gold for borders */
+    --brand: #D6AD8D;        /* signature tan (logo base) */
+    --brand-2: #5A3E2B;      /* rich espresso accent */
+
+      /* Typography: crisp, clean, easy reading */
+      --font-head: system-ui, -apple-system, Segoe UI, Roboto, "Inter", Helvetica, Arial, sans-serif;
+      --font-body: system-ui, -apple-system, Segoe UI, Roboto, "Inter", Helvetica, Arial, sans-serif;
+      --font-heading: 'Grenze', serif;
+
+      /* Geometry */
+      --radius: 10px;
+      --shadow: 0 2px 14px rgba(17,17,17,.06);
+
+      /* Spacing consistent with reference density */
+      --space-1: .5rem; --space-2: .75rem; --space-3: 1rem; --space-4: 1.5rem; --space-5: 2rem; --space-6: 3rem; --space-7: 4rem;
+      /* Tile width scales with viewport; sidebar width too */
+      --tile: clamp(7rem, 18vw, 10rem);
+      --sidebar: clamp(9rem, 22vw, 14rem);
+    }
+
+    /* ===== RESET + BASE ===== */
+    *, *::before, *::after{ box-sizing: border-box; }
+    html{ font-size: 19px; } /* larger base for 25–60 demo */
+    body{
+      margin: 0; background: var(--bg); color: var(--text);
+      font-family: var(--font-body); line-height: 1.65;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    a{ color: inherit; text-decoration: none; }
+    img{ max-width: 100%; display: block; }
+    button, input, select, textarea{ font: inherit; }
+    .container{ width: min(1120px, 92vw); margin: 0 auto; }
+    h1,h2{ font-family: var(--font-heading); font-weight:700; }
+
+    /* ===== NAV ===== */
+    header{ position: sticky; top: 0; z-index: 50; background-color: var(--bg); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); padding: .07rem; width: 100%; padding-inline: 0; background-image: url(./media/salon_use/header_back.png); background-repeat: no-repeat; background-size: cover; transition: transform 0.4s ease; will-change: transform;}
+    header.hide{transform: translateY(-10rem);}
+
+    .nav{ display: flex; flex-direction: column; align-items: center;  padding: 0; width: 100%; justify-content: space-between;}
+    .brand{ display: flex;  align-items: center; gap: .75rem; }
+    .brand-logo{ padding-top: 1rem; width: 20rem; height: 10rem; border-radius: 0.5rem; padding-bottom: 6rem; }
+    .brand-name{ font-family: var(--font-head); font-weight: 700; letter-spacing: .3px; }
+    .nav-links{ display: flex; gap: 7rem; align-items: center; justify-items: center; text-decoration: none; color: var(--brand); font-family: var(--font-heading); }
+    
+    .nav-links a{ text-decoration: none; color: var(--brand); font-weight: 500;}
+    .nav-links a:hover{color: var(--brand-2)}
+    .nav-wrapper{ display:flex; align-items: flex-end;align-items: center; justify-content: center; background-color: var(--text); padding: .50rem ; width:100%; border-color: var(--line); position: sticky; z-index:60; top:0;}
+    
+    .btn{ display: inline-flex; align-items: center; justify-content: center; gap: .5rem; white-space: nowrap; border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1rem; font-weight: 700; cursor: pointer; font-size: 0.95rem; transition: var(--bg) 0.3s ease;}
+    .btn:hover{ background-color: var(--panel);}
+    .btn-primary{ background: var(--brand-2); color: var(--line); }
+    .btn-outline{ border-color: var(--line); color: #111; background: transparent; }
+
+    /* ===== HAMBURGER MENU (mobile) ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      width: 32px;
+      height: 28px;
+      cursor: pointer;
+      border: none;
+      background: transparent;
+      gap: 5px;
+    }
+    .hamburger span {
+      display: block;
+      width: 100%;
+      height: 3px;
+      background: #111;
+      border-radius: 2px;
+      transition: 0.3s ease;
+    }
+
+    /* Animate to an X when active */
+    .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 5px); }
+    .hamburger.active span:nth-child(2) { opacity: 0; }
+    .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -6px); }
+
+    /* Mobile behavior */
+    @media (max-width: 500px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        flex-direction: column;
+        background: rgba(255,255,255,0.98);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        padding: 0.75rem 1rem;
+        box-shadow: var(--shadow);
+        gap: 0.75rem;
+        display: none;
+      }
+      .nav-wrapper{ background: transparent; padding: 0;}
+      .nav-links.show { display: flex; }
+    }
+
+
+    /* ===== HERO (clean, roomy) ===== */
+    .hero{ padding: var(--space-6) 0 var(--space-5); }
+    .hero-grid{ display: grid; grid-template-columns: 1fr auto; align-items: center;justify-content: center;}
+
+    /* Center a single hero card */
+    .hero-grid .hero-card:only-child { grid-column: 1/ -1; justify-self: center;}
+    .hero-card{ background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: var(--space-1); box-shadow: var(--shadow); width:fit-content; max-width: 100%;}
+    .hero-card img{ width: clamp(18.6rem, 60vw, 60rem); margin: 0 auto; border-radius: var(--radius); height: auto;} 
+
+    .hero h1{ font-family: var(--font-heading); font-size: clamp(1.8rem, 4.2vw, 3rem); line-height: 1.15; margin: 0 0 .6rem; letter-spacing: .2px; text-transform: uppercase; }
+    .hero p{ color: var(--muted); margin: 0 0 1.2rem; font-size: clamp(1rem, 2.2vw, 1.05rem); }
+
+    /* ===== SECTION HEADINGS (uppercase like reference) ===== */
+    section{ padding: var(--space-7) 0; }
+    .section-title{ text-align: center; font-family: var(--font-heading); font-size: clamp(1.1rem,2.6vw,1.2rem); letter-spacing: .18em; text-transform: uppercase; color: #111; margin: 0 0 .8rem; }
+    .section-sub{ color: var(--text); margin: 0 0 1.25rem; }
+    .section-titles{ text-align: center; color: var(--text); margin: 0 0 1.25rem !important; }
+    .section-subs{ text-align: center; font-family: var(--font-heading); font-size: clamp(1.1rem,2.6vw,1.2rem); letter-spacing: .18em; text-transform: uppercase; color: #111; margin: 0 0 .8rem; }
+
+    /* ===== SERVICES (simple, list w/ borders) ===== */
+    .services{ display: grid; grid-template-columns: repeat(3,1fr); border-top: 0.1rem solid var(--line); }
+    .service-item{ display:flex; flex-direction: column; align-items:center; justify-content:space-between; padding: .9rem 0; /*--border-bottom: 1px solid var(--line); */}
+    .service-name{ font-family: var(--font-heading); letter-spacing: .02em; }
+    .service-price{ color: #333; font-weight: 600; }
+    @media screen and (max-width: 500px){
+      .services {grid-template-columns: 1fr !important;}
+    }
+
+    /* @tHAIRapy: service section Book Now (mobile only) */
+    #services #openBooking2 {
+      display: none; /* hidden by default (desktop) */
+    }
+
+    /* On mobile (≤500px), show and center it */
+    @media (max-width: 500px) {
+      #services #openBooking2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1rem auto 0;
+        width: fit-content;
+        margin-bottom: 1rem;
+      }
+    }
+
+    /* ===== YEARBOOK LAYOUT ===== */
+    .yearbook-grid{
+      display: grid;
+      grid-template-columns: var(--sidebar) repeat(auto-fit, minmax(var(--tile), 1fr));
+      gap: clamp(0.6rem, 2vw, 1rem);
+      align-items: start;
+    }
+
+    /* Tall left block that spans two portrait rows (like your screenshot) */
+    .yearbook-sidebar{
+      grid-row: span 2;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+      display: grid;
+      place-items: center;
+      padding: clamp(.8rem, 2vw, 1.2rem);
+    }
+    .yearbook-sidebar .sidebar-inner{
+      text-align: center;
+    }
+    .yearbook-sidebar h3{
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1rem, 2.4vw, 1.25rem);
+      letter-spacing: .04em;
+      margin: 0 0 .25rem;
+    }
+    .yearbook-sidebar p{
+      color: var(--muted);
+      font-size: clamp(.8rem, 1.8vw, .95rem);
+      margin: 0;
+    }
+
+    /* Portrait cards */
+    .gallery-card{
+      width: 100%;
+      max-width: var(--tile);
+      justify-self: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .gallery-item{
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;               /* perfect square */
+      border-radius: .5rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0,0,0,.05);
+      transition: transform .25s ease, box-shadow .25s ease;
+      cursor: pointer;
+    }
+    .gallery-item img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .gallery-item:hover{
+      transform: scale(1.03);
+      box-shadow: 0 4px 10px rgba(0,0,0,.1);
+    }
+
+    .gallery-meta{
+      text-align: center;
+      margin-top: .45rem;
+    }
+    .stylist-name{
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(.85rem, 2.2vw, 1rem);
+      margin: 0;
+      letter-spacing: .02em;
+    }
+    .stylist-handle{
+      color: var(--muted);
+      font-size: clamp(.72rem, 1.8vw, .9rem);
+      margin: .15rem 0 0;
+    }
+
+    /* On very small phones, stack the sidebar on top and keep portraits tidy */
+    @media (max-width: 520px){
+      .yearbook-grid{
+        grid-template-columns: repeat(2, minmax(var(--tile), 1fr));
+      }
+      .yearbook-sidebar{
+        grid-column: 1 / -1; /* full width on top */
+        grid-row: auto;
+      }
+    }
+
+    /* If you still have the old overlay caption, hide it for this layout */
+    .gallery-caption{ display: none !important; }
+
+
+    .stylist-name {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(0.8rem, 2.2vw, 0.95rem);
+      color: #111;
+      margin: 0;
+      line-height: 1.2;
+      text-transform: uppercase;
+      letter-spacing: .03em;
+    }
+
+    .stylist-role {
+      font-size: clamp(0.7rem, 1.8vw, 0.85rem);
+      color: var(--muted);
+      margin: 0.15rem 0 0;
+    }
+
+    /* Tighten up grid on small screens */
+    @media (max-width: 480px) {
+      .gallery {
+        gap: 0.6rem;
+      }
+      .gallery-item {
+        max-width: 120px;
+      }
+    }
+
+
+    
+
+    /* ===== FORM (modal) ===== */
+    dialog#bookingModal{ width: min(720px, 92vw); border: 1px solid var(--line); background: #fff; color: var(--text); border-radius: 12px; padding: 0; box-shadow: 0 20px 60px rgba(17,17,17,.15); }
+    dialog::backdrop{ background: rgba(0,0,0,.35); backdrop-filter: blur(2px); }
+    .modal-head{ padding: 1rem 1.25rem; border-bottom: 1px solid var(--line); display:flex; align-items:center; justify-content:space-between; }
+    .modal-body{ padding: 1.25rem 1.25rem 1.5rem; }
+    .x{ background: transparent; border: 1px solid var(--line); border-radius: 999px; width: 34px; height: 34px; color: #111; font-size: 1.1rem; cursor: pointer; }
+
+    .form{ background: transparent; }
+    .field{ display: grid; gap: .45rem; margin-bottom: 1rem; }
+    label{ font-weight: 800; letter-spacing: .03em; text-transform: uppercase; font-size: .86rem; color: #333; }
+    input[type="text"], input[type="email"], input[type="tel"], select, textarea{
+      background: #fff; border: 1px solid var(--line); color: var(--text);
+      border-radius: 8px; padding: .8rem .85rem; outline: none;
+    }
+    input:focus, select:focus, textarea:focus{ border-color: #111; box-shadow: 0 0 0 3px rgba(17,17,17,.08); }
+    .helper{ color: #667; font-size: .95rem; }
+
+    /* ===== FOOTER ===== */
+    footer{ padding: var(--space-6) 0 var(--space-7); color: var(--bg);background-color: var(--brand-2); border-top: 1px solid var(--line); text-align: center; }
+    hr{ border: none; height: 1px; background: var(--line); margin: 1.4rem 0; }
+    /* @tHAIRapy: footer map card */
+    .footer-map{display:grid; gap:.6rem;  border:1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); padding:.6rem; background:#fff;}  
+
+    .footer-map h3{ margin:0; font-family: var(--font-heading); letter-spacing:.04em; font-size:1rem;}
+
+    .map-wrap{aspect-ratio: 16 / 9;border-radius: 8px;overflow: hidden;border:1px solid var(--line);}
+    .map-wrap iframe{width:100%; height:100%; border:0; display:block;
+    }
+    .map-actions{ display:flex; gap:.5rem; flex-wrap:wrap; }
+
+      
+
+    /* @tHairapy wallet */
+    /* @tHairapy: wallet photo gallery */
+    .gallery-item--wallet{
+      aspect-ratio: 2 / 3;
+      background: transparent;
+      border: 0;
+      padding: 6px;                 /* white mat */
+      border-radius: 10px;
+      background: linear-gradient(#fff,#fff) padding-box;
+      box-shadow: 0 4px 10px rgba(0,0,0,.10);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .gallery-item--wallet:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(0,0,0,.16);
+    }
+    .gallery-item--wallet img{
+      width:100%; height:100%; object-fit:cover; border-radius:8px; display:block;
+    }
+    .gallery-card{ max-width: 220px; }
+    @media (max-width: 900px){ .gallery-card{ max-width: 190px; } }
+    @media (max-width: 600px){ .gallery-card{ max-width: 150px; } }
+
+
+
+    /* @tHairapy lightbox css */
+    /* @tHairapy: lightbox styles */
+    #t-lightbox{ border:0; padding:0; background:transparent; }
+    #t-lightbox::backdrop{ background:rgba(0,0,0,.55); backdrop-filter: blur(2px); }
+    #t-lightbox img{max-width:min(92vw, 960px);max-height:80vh;border-radius:12px;box-shadow:0 20px 50px rgba(0,0,0,.35);}
+    #t-lightbox .x{ position: fixed; top: 10px; right: 14px; }
+
+
+
+    /* @tHairapy reveal css */
+    /* @tHairapy: reveal */
+    .reveal{ opacity:0; transform:translateY(12px); transition: .5s ease; }
+    .reveal.is-in{ opacity:1; transform:none; }
+    @media (prefers-reduced-motion: reduce){
+      .reveal{ opacity:1; transform:none; transition:none; }
+    }
+
+
+
+    /* @tHairapy nav polish */
+    /* @tHairapy: nav polish */
+    .nav-wrapper{ position: sticky; top: 0; z-index: 60; }
+    header{ transition: transform 0.4s ease; will-change: transform; }
+    header.hide{ transform: translateY(-10rem); } /* adjust to logo block height */
+
+
+
+    /* @tHairapy cheetah header */
+    /* @tHairapy: cheetah header bg */
+    header{
+      background: var(--bg) url("./media/salon_use/header_back.png") center/cover no-repeat;
+    }
+    header::before{
+      content:""; position:absolute; inset:0; z-index:-1;
+      background: rgba(249,246,243,.55);
+      box-shadow: inset 0 0 0 9999px rgba(203,167,107,.06);
+    }
+
+</style>
+</head>
+<body>
+  <!-- ===== HEADER / NAV ===== -->
+  <header>
+    <div class="container nav" role="navigation" aria-label="Primary">
+      <a class="brand" href="#home" aria-label="Go to home">
+        <div class="brand-logo" aria-hidden="true"> <img src="./media/salon_use/tHAIRapy_logo.jpg" alt="Thairapy cheetah print logo"></div>
+        <!--<div class="brand-name">Thairapy Salon and Spa</div>-->
+      </a>
+
+      <!-- Hamburger button -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-wrapper">
+        <nav class="nav-links" id="navLinks">
+          <a  href="./index.html#services">Services</a>
+          <a  href="./stylist.html">Stylists</a>
+          <a href="#gallery">Gallery</a>
+          <button class="btn btn-primary" id="openBooking">Book Now</button>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!--Hero section-->
+  <main id="home" class="hero">
+    <div class="container hero-grid">
+      <!--<div class="hero-card">
+        <h1>Salon</h1>
+        <p>TODO: Short subheading about the salon vibe, specialties, or tagline. Keep to ~140 chars.</p>
+        <div style="display:flex; gap:.6rem; flex-wrap: wrap;">
+          <button class="btn btn-primary" id="openBooking2" aria-label="Open booking form">Book Now</button>
+          <a class="btn btn-outline" href="#services" aria-label="View services and prices">View Services</a>
+        </div>-->
+        <div class="hero-card">
+        <img src="./media/salon_use/hero_section.jpg" alt="Salon interior placeholder" />
+      </div>
+      </div>
+      <!--<div class="hero-card">
+        <img src="./media/hero section.jpg" alt="Salon interior placeholder" />
+      </div>-->
+    </div>
+  </main>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services">
+    <div class="container">
+      <h2 class="section-titles">Services & Price Ranges</h2>
+      <p class="section-subs">Stylists with range & chair after chair of beautiful hair</p>
+      <button class="btn btn-primary" id="openBooking2">Book Now</button>
+      <div class="services" aria-live="polite">
+        <!-- TODO: Duplicate/modify these items as needed. Keep ranges readable. -->
+        <div class="service-item"><div class="service-name">Styling </div><div class="service-price">$20+</div></div>
+        <div class="service-item"><div class="service-name">Bleaching Srvice / Foiling </div><div class="service-price">$45+</div></div>
+        <div class="service-item"><div class="service-name">Manicure/Pedicure </div><div class="service-price">$40–$80</div></div>
+        <div class="service-item"><div class="service-name">Waxing</div><div class="service-price">$7+</div></div>
+        <div class="service-item"><div class="service-name">Perms</div><div class="service-price">$60+</div></div>
+        <div class="service-item"><div class="service-name">Massages</div><div class="service-price">$45+</div></div>
+        <div class="service-item"><div class="service-name">Ear Candling</div><div class="service-price">$50+</div></div>
+        <div class="service-item"><div class="service-name">Eyelash Extensions</div><div class="service-price">$75+</div></div>
+        <div class="service-item"><div class="service-name">Permanent Makeup</div><div class="service-price">$150+</div></div>
+        <div class="service-item"><div class="service-name">Hair cuts</div><div class="service-price">$20+</div></div>
+        <div class="service-item"><div class="service-name">Hair extensions</div><div class="service-price">$100+</div></div>
+        <div class="service-item"><div class="service-name">Hair coloring</div><div class="service-price">$40+</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== GALLERY (HOVER-CYCLE & CLICK → BOOK) ===== -->
+  <section id="gallery">
+    <div class="container">
+      <h2 class="section-title">Gallery</h2>
+
+      <!-- YEARBOOK GRID -->
+      <div class="yearbook-grid" id="galleryGrid">
+        <!-- Left tall block: put any content here (replaces "CLASS OF 2022") -->
+        <aside class="yearbook-sidebar">
+          <!-- TODO: Replace with your own content -->
+          <div class="sidebar-inner">
+            <h3>Quick come get your tHAIRapy!</h3>
+            <p>Located at 2916 High Ridge Boulevard High Ridge, MO, 63049</p>
+          </div>
+        </aside>
+
+        <!-- Portrait cards (repeat for each stylist) -->
+        <div class="gallery-card">
+          <a class="gallery-item gallery-item--wallet"
+            data-images='["./media/heather/heather_2.png","./media/heather/heather_3.png", "./media/heather/heather_4.png"]'
+            data-book="https://mysite.vagaro.com/bfbeautybar5"
+            href="javascript:void(0)" aria-label="Open Heather Nicole booking">
+            <img src="./media/heather/heather_1.png" alt="Heather Nicole">
+          </a>
+          <div class="gallery-meta">
+            <h4 class="stylist-name">Heather Nicole</h4>
+            <!--<p class="stylist-handle">@heathernicole</p>-->
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <a class="gallery-item gallery-item--wallet"
+            data-images='["./media/stylist_2/2025-09-30_22-00-15_698.png","./media/stylist_2/2025-09-30_22-00-35_721.png","./media/stylist_2/2025-09-30_22-01-15_584.png"]'
+            data-book="<!-- TODO: Stylist 2 booking URL -->"
+            href="javascript:void(0)" aria-label="Open Stylist 2 booking">
+            <img src="./media/stylist_2/2025-09-30_22-01-35_672.png" alt="Stylist 2">
+          </a>
+          <div class="gallery-meta">
+            <h4 class="stylist-name">name</h4>
+            
+          </div>
+        </div>
+
+        
+
+        <div class="gallery-card">
+          <a class="gallery-item gallery-item--wallet"
+            data-images='["./media/stylist_4/2025-09-30_21-51-45_387.jpeg","./media/stylist_4/2025-09-30_07-24-58_370.jpeg","./media/stylist_4/2025-09-30_21-49-03_993.jpeg"]'
+            data-book="<!-- TODO: Stylist 4 booking URL -->"
+            href="javascript:void(0)" aria-label="Open Stylist 2 booking">
+            <img src="./media/stylist_4/2025-09-30_21-53-18_713.jpeg" alt="Stylist 4">
+          </a>
+          <div class="gallery-meta">
+            <h4 class="stylist-name">name</h4>
+            
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <a class="gallery-item gallery-item--wallet"
+            data-images='["./media/stylist_3/2025-09-30_21-57-32_692.jpeg","./media/stylist_3/2025-09-30_21-57-41_914.jpeg","./media/stylist_3/2025-09-30_21-56-36_219.jpeg"]'
+            data-book="<!-- TODO: Stylist 3 booking URL -->"
+            href="javascript:void(0)" aria-label="Open Stylist 2 booking">
+            <img src="./media/stylist_3/2025-09-30_21-57-51_887.jpeg" alt="Stylist 3">
+          </a>
+          <div class="gallery-meta">
+            <h4 class="stylist-name">name</h4>
+            
+          </div>
+        </div>
+
+        <div class="gallery-card">
+          <a class="gallery-item gallery-item--wallet"
+            data-images='["./media/stylist_5/2025-09-30_21-48-44_797.png","./media/stylist_5/2025-09-30_05-27-32_730.png","./media/stylist_5/2025-09-30_05-17-14_860.png"]'
+            data-book="<!-- TODO: Stylist 5 booking URL -->"
+            href="javascript:void(0)" aria-label="Open Stylist 2 booking">
+            <img src="./media/stylist_5/2025-09-30_21-48-13_047.png" alt="Stylist 5">
+          </a>
+          <div class="gallery-meta">
+            <h4 class="stylist-name">name</h4>
+            
+          </div>
+        </div>
+
+        <div class="gallery-card"> 
+          <a class="gallery-item gallery-item--wallet"
+            data-images='["./media/stylist_6/2025-09-30_21-53-33_641.jpeg","./media/stylist_6/2025-09-25_14-41-57_000.jpg","./media/stylist_6/2025-09-25_14-41-51_000.jpg"]'
+            data-book="<!-- TODO: Stylist 6 booking URL -->"
+            href="javascript:void(0)" aria-label="Open Stylist 2 booking">
+            <img src="./media/stylist_6/2025-09-25_14-42-00_000.jpg" alt="Stylist 6">
+          </a>
+          <div class="gallery-meta">
+            <h4 class="stylist-name">name</h4>
+            
+          </div>
+        </div>
+
+        <!-- Repeat .gallery-card for all stylists -->
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><hr></div>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <div class="container" role="contentinfo">
+      <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; justify-content:space-between;">
+        <!-- @tHAIRapy: Google Map -->
+        <div class="footer-map">
+          <h3>Find Us</h3>
+          <div class="map-wrap" aria-label="Map to tHAIRapy Salon &amp; Spa">
+            <iframe
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=tHAIRapy+Salon+%26+Spa,+2916+High+Ridge+Blvd,+High+Ridge,+MO+63049&output=embed">
+            </iframe>
+          </div>
+          <div class="map-actions">
+            <a class="btn btn-primary"
+              href="https://www.google.com/maps/dir/?api=1&destination=2916+High+Ridge+Blvd,+High+Ridge,+MO+63049"
+              target="_blank" rel="noopener"
+              aria-label="Open directions to tHAIRapy Salon &amp; Spa in Google Maps">
+              Get Directions
+            </a>
+            <a class="btn btn-outline"
+              href="https://www.google.com/maps/search/?api=1&query=2916+High+Ridge+Blvd,+High+Ridge,+MO+63049"
+              target="_blank" rel="noopener">
+              View in Maps
+            </a>
+          </div>
+        </div>
+
+        <small>© <span id="year"></span> Thairapy Salon & Spa. All rights reserved.</small>
+        <div style="display:flex; gap:.75rem;">
+          <!-- TODO: Replace with real links or remove -->
+          <a href="#" aria-label="Instagram">Instagram</a>
+          <a href="#" aria-label="Facebook">Facebook</a>
+          <a href="#" aria-label="TikTok">TikTok</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== BOOKING MODAL (appears ONLY when Book Now is clicked) ===== -->
+  <dialog id="bookingModal" aria-label="Booking and Inquiry Form">
+    <div class="modal-head">
+      <strong><!-- TODO: Salon Name or "Booking" --></strong>
+      <button class="x" id="closeBooking" aria-label="Close booking form">×</button>
+    </div>
+    <div class="modal-body">
+      <form class="form" id="inquiryForm" aria-label="General booking form">
+        <!-- OPTION A (no-code email): Formspree
+             1) Create a Formspree form, then paste the action URL here and uncomment:
+             action="https://formspree.io/f/your-form-id" method="POST"
+             2) Add a hidden input for the subject if desired.
+        -->
+        <!-- OPTION B: EmailJS (client-side)
+             Keep method="dialog" here and follow instructions in JS below (search for EMAILJS_SETUP).
+        -->
+
+        <div class="field">
+          <label for="fName">Name *</label>
+          <input id="fName" name="name" type="text" required placeholder="Your full name"/>
+        </div>
+        <div class="field" style="display:grid; gap:.7rem; grid-template-columns: 1fr 1fr;">
+          <div>
+            <label for="fEmail">Email *</label>
+            <input id="fEmail" name="email" type="email" required placeholder="you@example.com"/>
+          </div>
+          <div>
+            <label for="fPhone">Phone</label>
+            <input id="fPhone" name="phone" type="tel" placeholder="Optional"/>
+          </div>
+        </div>
+        <div class="field">
+          <label for="fStylist">Preferred Artist</label>
+          <select id="fStylist" name="stylist">
+            <option value="">No preference</option>
+            <option>Stylist 1</option>
+            <option>Stylist 2</option>
+            <option>Stylist 3</option>
+            <option>Stylist 4</option>
+            <option>Stylist 5</option>
+            <option>Stylist 6</option>
+          </select>
+          <div class="helper">Selecting an artist lets us route your message to their inbox or booking link.</div>
+        </div>
+        <div class="field">
+          <label for="fService">Service</label>
+          <select id="fService" name="service">
+            <option value="">Choose a service</option>
+            <option>Women's Cut</option>
+            <option>Men's Cut</option>
+            <option>Blowout & Style</option>
+            <option>Single‑Process Color</option>
+            <option>Highlights / Balayage</option>
+            <option>Keratin / Smoothing</option>
+            <option>Extensions (consult)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="fNotes">Notes</label>
+          <textarea id="fNotes" name="notes" rows="5" placeholder="Tell us about your hair goals, preferred days/times, etc."></textarea>
+        </div>
+        <div style="display:flex; gap:.6rem; flex-wrap: wrap;">
+          <button class="btn btn-primary" type="submit">Send Inquiry</button>
+          <button class="btn btn-outline" type="reset">Clear</button>
+        </div>
+        <p id="formMsg" class="helper" role="status" aria-live="polite" style="margin-top:.6rem;"></p>
+      </form>
+    </div>
+  </dialog>
+
+  <script>
+    // ===== UTIL =====
+    const $ = (sel, root=document) => root.querySelector(sel);
+    const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+
+    // Year
+    $('#year').textContent = new Date().getFullYear();
+
+    // ===== OPEN/CLOSE MODAL =====
+    const modal = $('#bookingModal');
+    const openers = ['#openBooking', '#openBooking2'];
+    openers.forEach(id => {
+      const el = $(id);
+      if(el) el.addEventListener('click', () => modal.showModal());
+    });
+    $('#closeBooking').addEventListener('click', () => modal.close());
+
+    // Close on ESC
+    modal.addEventListener('cancel', (e) => { e.preventDefault(); modal.close(); });
+
+    // ===== GALLERY HOVER-CYCLE (order-locked) =====
+    const hoverTimers = new WeakMap();
+
+    $$('.gallery-item').forEach(item => {
+      let images = [];
+      try { images = JSON.parse(item.dataset.images || '[]'); } catch {}
+      if (!images.length) return;
+
+      const imgEl = item.querySelector('img');
+      const originalThumb = imgEl.src;
+      let idx = 0;
+      let timer;
+
+      async function showNext() {
+        return new Promise(resolve => {
+          idx = (idx + 1) % images.length;
+          const next = new Image();
+          next.onload = () => { imgEl.src = next.src; resolve(); };
+          next.src = images[idx];
+        });
+      }
+
+      async function startCycle() {
+        idx = 0;
+        imgEl.src = images[idx];
+        while (hoverTimers.has(item)) {
+          await showNext();
+          await new Promise(r => timer = setTimeout(r, 900));
+        }
+      }
+
+      item.addEventListener('mouseenter', () => {
+        if (hoverTimers.has(item)) return;
+        hoverTimers.set(item, true);
+        startCycle();
+      });
+
+      item.addEventListener('mouseleave', () => {
+        hoverTimers.delete(item);
+        clearTimeout(timer);
+        imgEl.src = originalThumb;
+      });
+    });
+
+
+    // ===== STYLIST CARD → OPEN MODAL & PREFILL =====
+    $$('#stylists [data-open-booking]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const name = btn.getAttribute('data-open-booking');
+        const select = $('#fStylist');
+        if(name){
+          let opt = Array.from(select.options).find(o => o.value === name || o.text === name);
+          if(!opt){ opt = new Option(name, name); select.add(opt); }
+          select.value = name;
+        }
+        modal.showModal();
+      });
+    });
+
+    // ===== BOOKING/INQUIRY FORM SUBMIT =====
+    const form = $('#inquiryForm');
+    const msg = $('#formMsg');
+
+    // TODO: Add your real booking links for each stylist here:
+    const BOOKING_LINKS = {
+      'Stylist 1': 'https://example.com/book/stylist-1',
+      'Stylist 2': 'https://example.com/book/stylist-2',
+      'Stylist 3': 'https://example.com/book/stylist-3',
+      'Stylist 4': 'https://example.com/book/stylist-4',
+      'Stylist 5': 'https://example.com/book/stylist-5',
+      'Stylist 6': 'https://example.com/book/stylist-6'
+    };
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      msg.textContent = '';
+
+      const name = $('#fName').value.trim();
+      const email = $('#fEmail').value.trim();
+      const stylist = $('#fStylist').value;
+      const service = $('#fService').value;
+      const notes = $('#fNotes').value.trim();
+
+      // If a stylist is selected and a real booking link exists → redirect to that stylist's booking page
+      if(stylist && BOOKING_LINKS[stylist] && !BOOKING_LINKS[stylist].includes('example.com')){
+        const qp = new URLSearchParams({ name, email, service, notes });
+        window.open(`${BOOKING_LINKS[stylist]}?${qp.toString()}`, '_blank', 'noopener');
+        msg.textContent = 'Opening your selected artist\'s booking in a new tab…';
+        form.reset();
+        // Keep modal open or close? Choose one:
+        // modal.close();
+        return;
+      }
+
+      // ===== OPTION A: FORMSPREE (no-code backend) =====
+      // To enable: set form action and method="POST" in the <form> tag, then remove this JS block or let the browser submit normally.
+
+      // ===== OPTION B: EMAILJS (client-side) =====
+      // EMAILJS_SETUP: Uncomment and configure the following to send emails directly.
+      // 1) Include EmailJS SDK script in <head> (https://www.emailjs.com/docs/examples/browser-sdk/)
+      // 2) emailjs.init('YOUR_PUBLIC_KEY');
+      // 3) emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{ name, email, stylist, service, notes })
+      //    .then(() => { msg.textContent = 'Thanks! Your message has been sent.'; form.reset(); })
+      //    .catch(() => { msg.textContent = 'Sorry, something went wrong. Please try again or call us.'; });
+
+      // Fallback success message if neither routing nor email is configured yet
+      msg.textContent = 'Thanks! Your inquiry is ready—connect Formspree or EmailJS, or select a stylist with a booking link.';
+    });
+    
+    
+
+    // scrolling logic to hide logo and only show nav bar
+    let lastScroll = 0;
+    const header = document.querySelector('header');
+
+    window.addEventListener('scroll', () => {
+      const current = window.pageYOffset;
+
+      // scroll down → hide, scroll up → show
+      if (current > lastScroll && current > 80) {
+        header.classList.add('hide');
+      } else {
+        header.classList.remove('hide');
+      }
+      lastScroll = current;
+    });
+  </script>
+
+    <!--
+    <script>
+    // @tHAIRapy: central booking map
+    (() => {
+      const BOOKING_LINKS = {
+        "Heather Nicole": "https://example.com/heather",   // ← put the real URLs
+        "Joey": "https://example.com/joey",
+        "Casey": "https://example.com/casey"
+        // ...add the rest
+      };
+
+      document.querySelectorAll('.gallery-card').forEach(card=>{
+        const name = card.querySelector('.stylist-name')?.textContent?.trim();
+        const a = card.querySelector('.gallery-item');
+        if (name && a && BOOKING_LINKS[name]) {
+          a.dataset.book = BOOKING_LINKS[name];
+          a.setAttribute('aria-label', `Open booking for ${name}`);
+          a.rel = 'noopener'; // safety for window.open
+        }
+      });
+    })();
+    </script>
+    -->
+
+
+    <!-- @tHairapy lightbox dialog -->
+    <!-- @tHairapy: lightbox -->
+    <dialog id="t-lightbox" aria-label="Gallery image">
+      <img alt="" />
+      <button id="t-lb-x" class="x" aria-label="Close image">×</button>
+    </dialog>
+
+
+    <script>
+    // @tHAIRapy: booking-first lightbox
+    (() => {
+      const lb = document.getElementById('t-lightbox');
+      if (!lb) return;
+      const img = lb.querySelector('img');
+
+      document.querySelectorAll('.gallery-item').forEach(a=>{
+        a.addEventListener('click', (e)=>{
+          e.preventDefault();
+
+          // 1) Prefer booking if provided
+          const book = a.dataset.book;
+          if (book && !book.includes('TODO')) {
+            window.open(book, '_blank', 'noopener');
+            return;
+          }
+
+          // 2) Otherwise show lightbox
+          const imgs = JSON.parse(a.dataset.images || '[]');
+          const first = imgs[0] || a.querySelector('img')?.src;
+          if(first){ img.src = first; lb.showModal(); }
+        });
+      });
+
+      document.getElementById('t-lb-x')?.addEventListener('click', ()=>lb.close());
+      lb.addEventListener('click', e=>{ if(e.target===lb) lb.close(); });
+    })();
+    </script>
+
+
+    <!-- @tHairapy reveal js -->
+    <script>
+    // @tHairapy: reveal on scroll
+    (() => {
+      const io = new IntersectionObserver((ents)=>{
+        ents.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('is-in'); io.unobserve(e.target);} });
+      },{threshold:.1});
+      document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    })();
+    </script>
+
+    <!-- @tHairapy hamburger js -->
+    <script>
+    // @tHairapy: hamburger polish
+    (() => {
+      const btn = document.getElementById('hamburger');
+      const links = document.getElementById('navLinks');
+      if(!btn || !links) return;
+
+      function close(){ btn.classList.remove('active'); btn.setAttribute('aria-expanded','false'); links.classList.remove('show'); }
+      btn.setAttribute('aria-controls','navLinks'); btn.setAttribute('aria-expanded','false');
+
+      btn.addEventListener('click', ()=>{
+        const open = btn.classList.toggle('active');
+        links.classList.toggle('show'); 
+        btn.setAttribute('aria-expanded', String(open));
+      });
+      links.addEventListener('click', e=>{ if(e.target.closest('a,button')) close(); });
+      matchMedia('(min-width: 500px)').addEventListener('change', e=>{ if(e.matches) close(); });
+    })();
+    </script>
+  </body>
+</html>
