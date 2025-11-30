@@ -35,6 +35,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <!--<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">-->
   <link href="https://fonts.googleapis.com/css2?family=Grenze:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
 
   <style>
@@ -52,6 +54,7 @@
       --font-head: system-ui, -apple-system, Segoe UI, Roboto, "Inter", Helvetica, Arial, sans-serif;
       --font-body: system-ui, -apple-system, Segoe UI, Roboto, "Inter", Helvetica, Arial, sans-serif;
       --font-heading: 'Grenze', serif;
+      --font-brand: 'Playfair Display', serif;
 
       /* Geometry */
       --radius: 10px;
@@ -86,7 +89,7 @@
     .brand{ display: flex;  align-items: center; gap: .75rem; }
     .brand-logo{ padding-top: 1rem; width: 20rem; height: 10rem; border-radius: 0.5rem; padding-bottom: 6rem; }
     .brand-name{ font-family: var(--font-head); font-weight: 700; letter-spacing: .3px; }
-    .nav-links{ display: flex; gap: 7rem; align-items: center; justify-items: center; text-decoration: none; color: var(--brand); font-family: var(--font-heading); }
+    .nav-links{ display: flex; gap: 7rem; align-items: center; justify-items: center; text-decoration: none; color: var(--brand); font-family: var(--font-brand); }
     
     .nav-links a{ text-decoration: none; color: var(--brand); font-weight: 500;}
     .nav-links a:hover{color: var(--brand-2)}
@@ -94,7 +97,7 @@
     
     .btn{ display: inline-flex; align-items: center; justify-content: center; gap: .5rem; white-space: nowrap; border: 1px solid var(--line); padding: .6rem 1rem; font-weight: 700; cursor: pointer; font-size: 0.95rem; transition: var(--bg) 0.3s ease;}
     .btn:hover{ background-color: var(--panel);}
-    .btn-primary{ background: var(--brand-2); color: var(--line); }
+    .btn-primary{ background: var(--brand-2); color: var(--line); font-family: var(--font-brand); }
     .btn-outline{ border-color: var(--line); color: #111; background: transparent; }
 
     /* ===== HAMBURGER MENU (mobile) ===== */
@@ -158,7 +161,7 @@
 
     /* ===== SECTION HEADINGS (uppercase like reference) ===== */
     section{ padding: var(--space-7) 0; }
-    .section-title{ text-align: center; font-family: var(--font-heading); font-size: clamp(1.1rem,2.6vw,1.2rem); letter-spacing: .18em; text-transform: uppercase; color: #111; margin: 0 0 .8rem; }
+    .section-title{ text-align: center; font-family: var(--font-brand); font-size: clamp(1.1rem,2.6vw,1.2rem); letter-spacing: .18em; text-transform: uppercase; color: #111; margin: 0 0 .8rem; }
     .section-sub{ color: var(--text); margin: 0 0 1.25rem; }
 
     /* ===== STYLISTS GRID ===== */
@@ -169,7 +172,7 @@
     .stylist-photo{ height: 320px; background: #f6f6f6; }
     .stylist-photo img{ width: 100%; height: 100%; object-fit: cover; }
     .stylist-body{ padding: 1.1rem; display: grid; gap: .5rem; }
-    .stylist-name{ font-family: var(--font-head); font-weight: 800; letter-spacing: .02em; font-size: 1.05rem; text-transform: uppercase; }
+    .stylist-name{ font-family: var(--font-brand); font-weight: 800; letter-spacing: .02em; font-size: 1.05rem; text-transform: uppercase; }
     .stylist-bio{ color: #444; font-size: 1rem; }
     .stylist-actions{ padding: .95rem; display: flex; flex-wrap:wrap; gap: .6rem; border-top: 1px solid var(--line); }
     .stylist-actions .btn{ width: 100%; }
@@ -321,7 +324,7 @@ header::before{
           <a class="btn btn-outline" href="#services" aria-label="View services and prices">View Services</a>
         </div>-->
         <div class="hero-card">
-        <img src="./media/salon_use/group2.jpeg" alt="Salon interior placeholder" />
+        <img src="./media/salon_use/group2.jpg" alt="Salon interior placeholder" />
       </div>
       </div>
       <!--<div class="hero-card">
