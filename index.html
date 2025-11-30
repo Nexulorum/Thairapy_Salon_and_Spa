@@ -505,10 +505,10 @@
             data-images='["./media/heather/heather_2.png","./media/heather/heather_3.png", "./media/heather/heather_4.png"]'
             data-book="https://mysite.vagaro.com/bfbeautybar5"
             href="javascript:void(0)" aria-label="Open Heather Nicole booking">
-            <img src="./media/heather/heather_1.png" alt="Heather Nicole">
+            <img src="./media/heather/heather_1.png" alt="Heather">
           </a>
           <div class="gallery-meta">
-            <h4 class="stylist-name">Heather Nicole</h4>
+            <h4 class="stylist-name">Heather </h4>
             <!--<p class="stylist-handle">@heathernicole</p>-->
           </div>
         </div>
@@ -518,10 +518,10 @@
             data-images='["./media/stylist_2/2025-09-30_22-00-15_698.png","./media/stylist_2/2025-09-30_22-00-35_721.png","./media/stylist_2/2025-09-30_22-01-15_584.png"]'
             data-book="<!-- TODO: Stylist 2 booking URL -->"
             href="javascript:void(0)" aria-label="Open Stylist 2 booking">
-            <img src="./media/stylist_2/2025-09-30_22-01-35_672.png" alt="Stylist 2">
+            <img src="./media/stylist_2/2025-09-30_22-01-35_672.png" alt="Beckie">
           </a>
           <div class="gallery-meta">
-            <h4 class="stylist-name">name</h4>
+            <h4 class="stylist-name">Beckie</h4>
             
           </div>
         </div>
@@ -533,10 +533,10 @@
             data-images='["./media/stylist_4/2025-09-30_21-51-45_387.jpeg","./media/stylist_4/2025-09-30_07-24-58_370.jpeg","./media/stylist_4/2025-09-30_21-49-03_993.jpeg"]'
             data-book="<!-- TODO: Stylist 4 booking URL -->"
             href="javascript:void(0)" aria-label="Open Stylist 2 booking">
-            <img src="./media/stylist_4/2025-09-30_21-53-18_713.jpeg" alt="Stylist 4">
+            <img src="./media/stylist_4/2025-09-30_21-53-18_713.jpeg" alt="Mandy">
           </a>
           <div class="gallery-meta">
-            <h4 class="stylist-name">name</h4>
+            <h4 class="stylist-name">Mandy</h4>
             
           </div>
         </div>
@@ -546,10 +546,10 @@
             data-images='["./media/stylist_3/2025-09-30_21-57-32_692.jpeg","./media/stylist_3/2025-09-30_21-57-41_914.jpeg","./media/stylist_3/2025-09-30_21-56-36_219.jpeg"]'
             data-book="<!-- TODO: Stylist 3 booking URL -->"
             href="javascript:void(0)" aria-label="Open Stylist 2 booking">
-            <img src="./media/stylist_3/2025-09-30_21-57-51_887.jpeg" alt="Stylist 3">
+            <img src="./media/stylist_3/2025-09-30_21-57-51_887.jpeg" alt="Stacey">
           </a>
           <div class="gallery-meta">
-            <h4 class="stylist-name">name</h4>
+            <h4 class="stylist-name">Stacey</h4>
             
           </div>
         </div>
@@ -559,10 +559,10 @@
             data-images='["./media/stylist_5/2025-09-30_21-48-44_797.png","./media/stylist_5/2025-09-30_05-27-32_730.png","./media/stylist_5/2025-09-30_05-17-14_860.png"]'
             data-book="<!-- TODO: Stylist 5 booking URL -->"
             href="javascript:void(0)" aria-label="Open Stylist 2 booking">
-            <img src="./media/stylist_5/2025-09-30_21-48-13_047.png" alt="Stylist 5">
+            <img src="./media/stylist_5/2025-09-30_21-48-13_047.png" alt="Michele">
           </a>
           <div class="gallery-meta">
-            <h4 class="stylist-name">name</h4>
+            <h4 class="stylist-name">Bekkah</h4>
             
           </div>
         </div>
@@ -575,7 +575,7 @@
             <img src="./media/stylist_6/2025-09-25_14-42-00_000.jpg" alt="Stylist 6">
           </a>
           <div class="gallery-meta">
-            <h4 class="stylist-name">name</h4>
+            <h4 class="stylist-name">Michele</h4>
             
           </div>
         </div>
@@ -631,11 +631,13 @@
   <!-- ===== BOOKING MODAL (appears ONLY when Book Now is clicked) ===== -->
   <dialog id="bookingModal" aria-label="Booking and Inquiry Form">
     <div class="modal-head">
-      <strong><!-- TODO: Salon Name or "Booking" --></strong>
+      <strong>tHAIRapy Salon & Spa</strong>
       <button class="x" id="closeBooking" aria-label="Close booking form">×</button>
     </div>
     <div class="modal-body">
-      <form class="form" id="inquiryForm" aria-label="General booking form">
+      <form class="form" id="inquiryForm" name="inquiry" method="POST" data-netlify="true" aria-label="General booking form">
+        <input type="hidden" name="form-name" value="inquiry"/>
+        
         <!-- OPTION A (no-code email): Formspree
              1) Create a Formspree form, then paste the action URL here and uncomment:
              action="https://formspree.io/f/your-form-id" method="POST"
@@ -663,12 +665,12 @@
           <label for="fStylist">Preferred Artist</label>
           <select id="fStylist" name="stylist">
             <option value="">No preference</option>
-            <option>Stylist 1</option>
-            <option>Stylist 2</option>
-            <option>Stylist 3</option>
-            <option>Stylist 4</option>
-            <option>Stylist 5</option>
-            <option>Stylist 6</option>
+            <option>Heather</option>
+            <option>Beckie</option>
+            <option>Mandy</option>
+            <option>Stacey</option>
+            <option>Bekkah</option>
+            <option>Michele</option>
           </select>
           <div class="helper">Selecting an artist lets us route your message to their inbox or booking link.</div>
         </div>
@@ -676,13 +678,19 @@
           <label for="fService">Service</label>
           <select id="fService" name="service">
             <option value="">Choose a service</option>
-            <option>Women's Cut</option>
-            <option>Men's Cut</option>
-            <option>Blowout & Style</option>
-            <option>Single‑Process Color</option>
-            <option>Highlights / Balayage</option>
-            <option>Keratin / Smoothing</option>
-            <option>Extensions (consult)</option>
+            <option>Styling</option>
+            <option>Bleaching service / Foiling</option>
+            <option>Manicure / Pedicure</option>
+            <option>Waxing</option>
+            <option>Perms</option>
+            <option>Massages</option>
+            <option>Ear Candling</option>
+            <option>Eyelash Extensions</option>
+            <option>Permanent Mackup</option>
+            <option>Hair Cuts</option>
+            <option>Hair Extensions</option>
+            <option>Hair Coloring</option>
+            <option></option>
           </select>
         </div>
         <div class="field">
@@ -777,55 +785,6 @@
       });
     });
 
-    // ===== BOOKING/INQUIRY FORM SUBMIT =====
-    const form = $('#inquiryForm');
-    const msg = $('#formMsg');
-
-    // TODO: Add your real booking links for each stylist here:
-    const BOOKING_LINKS = {
-      'Stylist 1': 'https://example.com/book/stylist-1',
-      'Stylist 2': 'https://beckiehalverson.glossgenius.com',
-      'Stylist 3': 'https://mandylandhair.glossgenius.com/',
-      'Stylist 4': 'https://staceywebb.glossgenius.com/',
-      'Stylist 5': 'https://goodeffectssalon.glossgenius.com/',
-      'Stylist 6': 'https://susanmicheledavis.glossgenius.com/'
-    };
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      msg.textContent = '';
-
-      const name = $('#fName').value.trim();
-      const email = $('#fEmail').value.trim();
-      const stylist = $('#fStylist').value;
-      const service = $('#fService').value;
-      const notes = $('#fNotes').value.trim();
-
-      // If a stylist is selected and a real booking link exists → redirect to that stylist's booking page
-      if(stylist && BOOKING_LINKS[stylist] && !BOOKING_LINKS[stylist].includes('example.com')){
-        const qp = new URLSearchParams({ name, email, service, notes });
-        window.open(`${BOOKING_LINKS[stylist]}?${qp.toString()}`, '_blank', 'noopener');
-        msg.textContent = 'Opening your selected artist\'s booking in a new tab…';
-        form.reset();
-        // Keep modal open or close? Choose one:
-        // modal.close();
-        return;
-      }
-
-      // ===== OPTION A: FORMSPREE (no-code backend) =====
-      // To enable: set form action and method="POST" in the <form> tag, then remove this JS block or let the browser submit normally.
-
-      // ===== OPTION B: EMAILJS (client-side) =====
-      // EMAILJS_SETUP: Uncomment and configure the following to send emails directly.
-      // 1) Include EmailJS SDK script in <head> (https://www.emailjs.com/docs/examples/browser-sdk/)
-      // 2) emailjs.init('YOUR_PUBLIC_KEY');
-      // 3) emailjs.send('YOUR_SERVICE_ID','YOUR_TEMPLATE_ID',{ name, email, stylist, service, notes })
-      //    .then(() => { msg.textContent = 'Thanks! Your message has been sent.'; form.reset(); })
-      //    .catch(() => { msg.textContent = 'Sorry, something went wrong. Please try again or call us.'; });
-
-      // Fallback success message if neither routing nor email is configured yet
-      msg.textContent = 'Thanks! Your inquiry is ready—connect Formspree or EmailJS, or select a stylist with a booking link.';
-    });
     
     
 
