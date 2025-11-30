@@ -92,7 +92,7 @@
     .nav-links a:hover{color: var(--brand-2)}
     .nav-wrapper{ display:flex; align-items: flex-end;align-items: center; justify-content: center; background-color: var(--text); padding: .50rem ; width:100%; border-color: var(--line); position: sticky; top: 0; z-index: 60; }
     
-    .btn{ display: inline-flex; align-items: center; justify-content: center; gap: .5rem; white-space: nowrap; border: 1px solid var(--line); border-radius: 999px; padding: .6rem 1rem; font-weight: 700; cursor: pointer; font-size: 0.95rem; transition: var(--bg) 0.3s ease;}
+    .btn{ display: inline-flex; align-items: center; justify-content: center; gap: .5rem; white-space: nowrap; border: 1px solid var(--line); padding: .6rem 1rem; font-weight: 700; cursor: pointer; font-size: 0.95rem; transition: var(--bg) 0.3s ease;}
     .btn:hover{ background-color: var(--panel);}
     .btn-primary{ background: var(--brand-2); color: var(--line); }
     .btn-outline{ border-color: var(--line); color: #111; background: transparent; }
@@ -161,10 +161,6 @@
     .section-title{ text-align: center; font-family: var(--font-heading); font-size: clamp(1.1rem,2.6vw,1.2rem); letter-spacing: .18em; text-transform: uppercase; color: #111; margin: 0 0 .8rem; }
     .section-sub{ color: var(--text); margin: 0 0 1.25rem; }
 
-    
-
-    
-
     /* ===== STYLISTS GRID ===== */
     .stylists{ display: grid; gap: 1rem; grid-template-columns: 1fr; }
     @media (min-width: 720px){ .stylists{ grid-template-columns: repeat(2, 1fr); } }
@@ -175,7 +171,7 @@
     .stylist-body{ padding: 1.1rem; display: grid; gap: .5rem; }
     .stylist-name{ font-family: var(--font-head); font-weight: 800; letter-spacing: .02em; font-size: 1.05rem; text-transform: uppercase; }
     .stylist-bio{ color: #444; font-size: 1rem; }
-    .stylist-actions{ padding: .95rem; display: flex; gap: .6rem; border-top: 1px solid var(--line); }
+    .stylist-actions{ padding: .95rem; display: flex; flex-wrap:wrap; gap: .6rem; border-top: 1px solid var(--line); }
     .stylist-actions .btn{ width: 100%; }
 
 
@@ -348,11 +344,11 @@ header::before{
           <div class="stylist-photo"><img src="./media/heather/heather_1.png" alt="Headshot of stylist Heather Nicole"></div>
           <div class="stylist-body">
             <div class="stylist-name">Heather Nicole</div>
-            <div class="stylist-bio">Hello! My name is Heather, I am the owner of Thairapy Salon & Spa. I specialize in lash extension, makeup & PMU. </div>
+            <div class="stylist-bio">Hello! My name is Heather, I am the owner of Thairapy Salon & Spa. I specialize in lash extension, makeup, PMU, and photography . </div>
           </div>
           <div class="stylist-actions">
             <a class="btn btn-primary" href="https://mysite.vagaro.com/bfbeautybar5" target="_blank" rel="noopener" aria-label="Book with Stylist 1">Book with Heather</a>
-            <!--<button class="btn btn-outline" data-open-booking="Stylist 1">Send Inquiry</button>-->
+            <button href="https://hdphotography2.mypixieset.com/" class="btn btn-outline" data-open-booking="Stylist 1">Book Photography Session</button>
           </div>
         </article>
 
