@@ -401,15 +401,7 @@ header::before{
           </div>
         </article>
 
-        <article class="stylist-card" id="stylist-6">
-          <div class="stylist-photo"><img src="./media/stylist_6/2025-09-25_14-41-57_000.jpg" alt="/* TODO: Stylist 6 headshot alt */"></div>
-          <div class="stylist-body">
-            <div class="stylist-name">/* TODO: Stylist 6 Name */</div>
-            <div class="stylist-bio">/* TODO: Short bio */</div>
-          </div>
-          <div class="stylist-actions">
-            <a class="btn btn-primary" href="<!-- TODO: Stylist 6 booking URL -->" target="_blank" rel="noopener">Book with Artist</a>
-            <!--<button class="btn btn-outline" data-open-booking="Stylist 6">Send Inquiry</button>-->
+        
           </div>
         </article>
       </div>
@@ -458,11 +450,12 @@ header::before{
   <!-- ===== BOOKING MODAL (appears ONLY when Book Now is clicked) ===== -->
   <dialog id="bookingModal" aria-label="Booking and Inquiry Form">
     <div class="modal-head">
-      <strong><!-- TODO: Salon Name or "Booking" --></strong>
+      <strong>tHAIRapy Salon & Spa</strong>
       <button class="x" id="closeBooking" aria-label="Close booking form">×</button>
     </div>
     <div class="modal-body">
-      <form class="form" id="inquiryForm" aria-label="General booking form">
+      <form class="form" id="inquiryForm" name="inquiry" method="POST" data-netlify="true" aria-label="General booking form">
+        <input type="hidden" name="form-name" value="inquiry"/>
         <!-- OPTION A (no-code email): Formspree
              1) Create a Formspree form, then paste the action URL here and uncomment:
              action="https://formspree.io/f/your-form-id" method="POST"
@@ -490,12 +483,12 @@ header::before{
           <label for="fStylist">Preferred Artist</label>
           <select id="fStylist" name="stylist">
             <option value="">No preference</option>
-            <option>Stylist 1</option>
-            <option>Stylist 2</option>
-            <option>Stylist 3</option>
-            <option>Stylist 4</option>
-            <option>Stylist 5</option>
-            <option>Stylist 6</option>
+            <option>Heather</option>
+            <option>Beckie</option>
+            <option>Mandy</option>
+            <option>Stacey</option>
+            <option>Bekkah</option>
+            
           </select>
           <div class="helper">Selecting an artist lets us route your message to their inbox or booking link.</div>
         </div>
@@ -503,13 +496,18 @@ header::before{
           <label for="fService">Service</label>
           <select id="fService" name="service">
             <option value="">Choose a service</option>
-            <option>Women's Cut</option>
-            <option>Men's Cut</option>
-            <option>Blowout & Style</option>
-            <option>Single‑Process Color</option>
-            <option>Highlights / Balayage</option>
-            <option>Keratin / Smoothing</option>
-            <option>Extensions (consult)</option>
+            <option>Styling</option>
+            <option>Bleaching service / Foiling</option>
+            <option>Manicure / Pedicure</option>
+            <option>Waxing</option>
+            <option>Perms</option>
+            <option>Massages</option>
+            <option>Ear Candling</option>
+            <option>Eyelash Extensions</option>
+            <option>Permanent Mackup</option>
+            <option>Hair Cuts</option>
+            <option>Hair Extensions</option>
+            <option>Hair Coloring</option>
           </select>
         </div>
         <div class="field">
